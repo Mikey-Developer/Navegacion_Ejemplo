@@ -92,12 +92,10 @@ public class fragmentoCita extends Fragment {
     }
 
     public void ir_aDestino(View view, String nombreDoctor, String hospital, String especialidad, String dia, String horario){
-        Bundle param = new Bundle();
-        param.putString("Doctor", nombreDoctor);
-        param.putString("Hospital", hospital);
-        param.putString("Especialidad", especialidad);
-        param.putString("Dia", dia);
-        param.putString("Horario", horario);
-        Navigation.findNavController(view).navigate(R.id.action_confirmar, param);
+
+       fragmentoCitaDirections.ActionConfirmar confirmar = fragmentoCitaDirections.actionConfirmar(nombreDoctor, hospital, dia);
+
+        Navigation.findNavController(view).navigate(confirmar);
+
     }
 }

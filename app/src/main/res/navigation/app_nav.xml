@@ -21,24 +21,23 @@
         tools:layout="@layout/fragment_confirmar_cita" >
         <argument
             android:name="Doctor"
-            app:argType="string"
-            android:defaultValue="N/A" />
+            app:argType="string" />
         <argument
             android:name="Hospital"
-            app:argType="string"
-            android:defaultValue="N/A" />
+            app:argType="string" />
         <argument
             android:name="Especialidad"
             app:argType="string"
-            android:defaultValue="N/A" />
+            android:defaultValue="N/A"
+            app:nullable="true" />
         <argument
             android:name="Dia"
-            app:argType="string"
-            android:defaultValue="N/A" />
+            app:argType="string" />
         <argument
             android:name="Horario"
             app:argType="string"
-            android:defaultValue="N/A" />
+            android:defaultValue="N/A"
+            app:nullable="true" />
         <action
             android:id="@+id/action_regresar_inicio"
             app:destination="@id/inicio" />

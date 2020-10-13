@@ -30,7 +30,7 @@ public class fragmentoConfirmar_Cita extends Fragment {
     private static final String ARG_HORARIO = "Horario";
 
     // TODO: Rename and change types of parameters
-    private String argDoctor, argHopsital, argEspecialidad, argDia, argHorario;
+    // private String argDoctor, argHopsital, argEspecialidad, argDia, argHorario;
 
     private TextView resultado_doctor, resultado_hospital, resultado_especialidad, resultado_dia, resultado_horario;
     private Button confirmar;
@@ -68,13 +68,6 @@ public class fragmentoConfirmar_Cita extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            argDoctor = getArguments().getString(ARG_DOCTOR);
-            argHopsital = getArguments().getString(ARG_HOSPITAL);
-            argEspecialidad = getArguments().getString(ARG_ESPECIALIDAD);
-            argDia = getArguments().getString(ARG_DIA);
-            argHorario = getArguments().getString(ARG_HORARIO);
-        }
     }
 
     @Override
@@ -89,11 +82,13 @@ public class fragmentoConfirmar_Cita extends Fragment {
         resultado_dia = v.findViewById(R.id.result_dia);
         resultado_horario = v.findViewById(R.id.result_horario);
 
-        resultado_doctor.setText(argDoctor);
-        resultado_hospital.setText(argHopsital);
-        resultado_especialidad.setText(argEspecialidad);
-        resultado_dia.setText(argDia);
-        resultado_horario.setText(argHorario);
+        fragmentoConfirmar_CitaArgs args = fragmentoConfirmar_CitaArgs.fromBundle(getArguments());
+
+        resultado_doctor.setText(args.getDoctor());
+        resultado_hospital.setText(args.getHospital());
+        resultado_especialidad.setText(args.getEspecialidad());
+        resultado_dia.setText(args.getDia());
+        resultado_horario.setText(args.getHorario());
 
         confirmar = v.findViewById(R.id.boton_confirmar);
 

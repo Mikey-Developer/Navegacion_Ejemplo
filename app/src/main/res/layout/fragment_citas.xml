@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.fragmentoCita" >
+    
+    
+    <TextView
+        android:id="@+id/titulo_fragCitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cita"
+        android:textSize="50sp"
+        android:textColor="#2b47ea"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:id="@+id/instruccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Llenar el siguiente formulario para agendar la cita."
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/titulo_fragCitas"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <!-- NOMBRE DEL DOCTOR -->
+
+    <TextView
+        android:id="@+id/campo_nombre_doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Nombre del Doctor"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/edit_nombre_doctor"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_nombre_doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Ingresar Nombre"
+        android:inputType="textMultiLine|text"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/edit_hospital"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/soport1" />
+
+    <!-- HOSPITAL / CLINICA -->
+
+    <TextView
+        android:id="@+id/campo_hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Hospital/Clinica"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/edit_hospital"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingresar Hospital"
+        android:inputType="textMultiLine|text"
+        android:textSize="16sp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_nombre_doctor"
+        app:layout_constraintBottom_toTopOf="@id/edit_especialidad"/>
+
+
+    <!-- ESPECIALIDAD -->
+
+    <TextView
+        android:id="@+id/campo_especialidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Especialidad"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/edit_especialidad"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_especialidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:inputType="textMultiLine|text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_hospital"
+        app:layout_constraintBottom_toTopOf="@id/edit_dia" />
+
+    <!-- DIA -->
+
+    <TextView
+        android:id="@+id/campo_dia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Dia"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/edit_dia"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_dia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Ingresar Dia"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_especialidad"
+        app:layout_constraintBottom_toTopOf="@id/edit_horario" />
+
+    <!-- HORARIO -->
+
+    <TextView
+        android:id="@+id/campo_horario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Horario"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/edit_horario"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_horario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Ingresar Horario"
+        android:inputType="time"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_dia"
+        app:layout_constraintBottom_toTopOf="@id/soport2"/>
+
+    <Button
+        android:id="@+id/boton_siguiente"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Siguiente"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/soport2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/soport1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,28 @@ public class fragmentoCita extends Fragment {
 
     private EditText nombre_doctor, hospital, especialidad, dia, horario;
     private Button siguiente;
+
+    private TextWatcher revisar_campos = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+             boolean camposVerificados = revisarCampos(nombre_doctor.getText().toString(), hospital.getText().toString(), dia.getText().toString());
+
+             if(camposVerificados)
+                siguiente.setEnabled(true);
+             else
+                 siguiente.setEnabled(false);
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
 
     public fragmentoCita() {
         // Required empty public constructor
@@ -75,7 +99,13 @@ public class fragmentoCita extends Fragment {
         dia = v.findViewById(R.id.edit_dia);
         horario = v.findViewById(R.id.edit_horario);
 
+        nombre_doctor.addTextChangedListener(revisar_campos);
+        hospital.addTextChangedListener(revisar_campos);
+        dia.addTextChangedListener(revisar_campos);
+
         siguiente = v.findViewById(R.id.boton_siguiente);
+
+        siguiente.setEnabled(false);
 
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +125,16 @@ public class fragmentoCita extends Fragment {
 
        fragmentoCitaDirections.ActionConfirmar confirmar = fragmentoCitaDirections.actionConfirmar(nombreDoctor, hospital, dia);
 
+       if(!especialidad.isEmpty())
+           confirmar.setEspecialidad(especialidad);
+       if(!horario.isEmpty())
+           confirmar.setHorario(horario);
+
         Navigation.findNavController(view).navigate(confirmar);
 
+    }
+
+    public boolean revisarCampos(String nombreDoctor, String hospital, String dia){
+        return (nombreDoctor.isEmpty() || hospital.isEmpty() || (dia.isEmpty() || Integer.parseInt(dia) > 31));
     }
 }

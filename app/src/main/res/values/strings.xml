@@ -2,4 +2,26 @@
     <string name="app_name">App de Consultorio</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TITULO E INSTRUCCION -->
+    <string name="titulo">Cita</string>
+    <string name="instruccion">Llenar el siguiente formulario para agendar la cita.</string>
+
+    <!-- ETIQUETAS -->
+    <string name="etiqueta_nom_doctor">Nombre del Doctor</string>
+    <string name="etiqueta_hospital">Hospital/Clinica</string>
+    <string name="etiqueta_especialidad">Especialidad</string>
+    <string name="etiqueta_dia">Dia</string>
+    <string name="etiqueta_horario">Horario</string>
+
+    <!-- HINT -->
+    <string name="hint_nom_doctor">Ingresar Nombre</string>
+    <string name="hint_hospital">Ingresar Hospital</string>
+    <string name="hint_dia">Ingresar Dia</string>
+    <string name="hint_horario">Ingresar Horario</string>
+
+    <!-- BOTONES -->
+    <string name="btn_siguiente">Siguiente</string>
+    <string name="btn_confirmar">Confirmar</string>
+
 </resources>

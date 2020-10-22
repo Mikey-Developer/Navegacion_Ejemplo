@@ -1,17 +1,21 @@
 package com.daa_lm.app_consultorio.fragments;
 
+
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
 
 import com.daa_lm.app_consultorio.R;
 
@@ -20,7 +24,7 @@ import com.daa_lm.app_consultorio.R;
  * Use the {@link fragmentoCita#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragmentoCita extends Fragment {
+public class fragmentoCita extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,6 +38,8 @@ public class fragmentoCita extends Fragment {
     private EditText nombre_doctor, hospital, especialidad, dia, horario;
     private Button siguiente;
 
+    private static final String TAG = "fragmentoCita: ";
+
     private TextWatcher revisar_campos = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -44,7 +50,7 @@ public class fragmentoCita extends Fragment {
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
              boolean camposVerificados = revisarCampos(nombre_doctor.getText().toString(), hospital.getText().toString(), dia.getText().toString());
 
-             if(camposVerificados)
+             if(!camposVerificados)
                 siguiente.setEnabled(true);
              else
                  siguiente.setEnabled(false);
@@ -107,6 +113,14 @@ public class fragmentoCita extends Fragment {
 
         siguiente.setEnabled(false);
 
+        horario.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                DialogFragment timePicker = new fragmentoTimePicker(horario);
+                timePicker.show(getActivity().getSupportFragmentManager(), "TimePicker");
+            }
+        });
+
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,6 +149,7 @@ public class fragmentoCita extends Fragment {
     }
 
     public boolean revisarCampos(String nombreDoctor, String hospital, String dia){
-        return (nombreDoctor.isEmpty() || hospital.isEmpty() || (dia.isEmpty() || Integer.parseInt(dia) > 31));
+        return (nombreDoctor.trim().isEmpty() || hospital.trim().isEmpty() || (dia.trim().isEmpty() || Integer.parseInt(dia) > 31));
     }
+
 }

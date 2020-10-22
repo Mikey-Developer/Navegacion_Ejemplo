@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             nav_view = findViewById(R.id.nav_lateral);
             NavigationUI.setupWithNavController(nav_view, control_nav);
 
-            appbarConfig = new AppBarConfiguration.Builder(control_nav.getGraph())
+            appbarConfig = new AppBarConfiguration.Builder(R.id.inicio, R.id.citas)
                     .setOpenableLayout(drawerLayout)
                     .build();
 
@@ -46,6 +46,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_fragment);
-        return NavigationUI.navigateUp(navController, drawerLayout);
+        return NavigationUI.navigateUp(navController, appbarConfig);
     }
 }

@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/citas"
         android:name="com.daa_lm.app_consultorio.fragments.fragmentoCita"
-        android:label="fragment_citas"
-        tools:layout="@layout/fragment_citas" >
+        android:label="Agendar Cita"
+        tools:layout="@layout/fragment_citas">
         <action
             android:id="@+id/action_confirmar"
             app:destination="@id/confirmarCita" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/confirmarCita"
         android:name="com.daa_lm.app_consultorio.fragments.fragmentoConfirmar_Cita"
-        android:label="fragment_confirmar_cita"
-        tools:layout="@layout/fragment_confirmar_cita" >
+        android:label="Confirmar Cita"
+        tools:layout="@layout/fragment_confirmar_cita">
         <argument
             android:name="Doctor"
             app:argType="string" />
@@ -27,16 +27,16 @@
             app:argType="string" />
         <argument
             android:name="Especialidad"
-            app:argType="string"
             android:defaultValue="N/A"
+            app:argType="string"
             app:nullable="true" />
         <argument
             android:name="Dia"
             app:argType="string" />
         <argument
             android:name="Horario"
-            app:argType="string"
             android:defaultValue="N/A"
+            app:argType="string"
             app:nullable="true" />
         <action
             android:id="@+id/action_regresar_inicio"
@@ -45,6 +45,6 @@
     <fragment
         android:id="@+id/inicio"
         android:name="com.daa_lm.app_consultorio.fragments.fragmentoInicio"
-        android:label="fragment_inicio"
+        android:label="Menú de Inicio"
         tools:layout="@layout/fragment_inicio" />
 </navigation>

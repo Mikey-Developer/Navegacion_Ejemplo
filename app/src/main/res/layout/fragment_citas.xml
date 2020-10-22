@@ -4,169 +4,186 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.fragmentoCita" >
-    
-    
+    tools:context=".fragments.fragmentoCita"
+    android:id="@+id/fragmentoCita">
+
+
     <TextView
         android:id="@+id/titulo_fragCitas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cita"
-        android:textSize="50sp"
-        android:textColor="#2b47ea"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="50dp"
-        />
+        android:text="@string/titulo"
+        android:textColor="#2b47ea"
+        android:textSize="50sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/instruccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Llenar el siguiente formulario para agendar la cita."
+        android:layout_marginTop="10dp"
+        android:text="@string/instruccion"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/titulo_fragCitas"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintTop_toBottomOf="@id/titulo_fragCitas" />
 
     <!-- NOMBRE DEL DOCTOR -->
 
     <TextView
         android:id="@+id/campo_nombre_doctor"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="Nombre del Doctor"
+        android:text="@string/etiqueta_nom_doctor"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/edit_nombre_doctor"
+        app:layout_constraintEnd_toStartOf="@+id/edit_nombre_doctor"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edit_nombre_doctor"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="Ingresar Nombre"
+        android:hint="@string/hint_nom_doctor"
         android:inputType="textMultiLine|text"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/edit_hospital"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/campo_nombre_doctor"
         app:layout_constraintTop_toBottomOf="@id/soport1" />
 
     <!-- HOSPITAL / CLINICA -->
 
     <TextView
         android:id="@+id/campo_hospital"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="Hospital/Clinica"
+        android:text="@string/etiqueta_hospital"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/edit_hospital"
+        app:layout_constraintEnd_toStartOf="@+id/edit_hospital"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edit_hospital"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="Ingresar Hospital"
+        android:hint="@string/hint_hospital"
         android:inputType="textMultiLine|text"
         android:textSize="16sp"
-        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@id/edit_especialidad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_nombre_doctor"
-        app:layout_constraintBottom_toTopOf="@id/edit_especialidad"/>
-
+        app:layout_constraintStart_toEndOf="@id/campo_hospital"
+        app:layout_constraintTop_toBottomOf="@id/edit_nombre_doctor" />
 
     <!-- ESPECIALIDAD -->
 
     <TextView
         android:id="@+id/campo_especialidad"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="Especialidad"
+        android:text="@string/etiqueta_especialidad"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/edit_especialidad"
+        app:layout_constraintEnd_toStartOf="@id/edit_especialidad"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edit_especialidad"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:inputType="textMultiLine|text"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/edit_dia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_hospital"
-        app:layout_constraintBottom_toTopOf="@id/edit_dia" />
+        app:layout_constraintStart_toEndOf="@id/campo_especialidad"
+        app:layout_constraintTop_toBottomOf="@id/edit_hospital" />
 
     <!-- DIA -->
 
     <TextView
         android:id="@+id/campo_dia"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="Dia"
+        android:text="@string/etiqueta_dia"
         android:textSize="16sp"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintBaseline_toBaselineOf="@id/edit_dia"
+        app:layout_constraintEnd_toStartOf="@id/edit_dia"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edit_dia"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="Ingresar Dia"
+        android:hint="@string/hint_dia"
         android:inputType="number"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/edit_horario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_especialidad"
-        app:layout_constraintBottom_toTopOf="@id/edit_horario" />
+        app:layout_constraintStart_toEndOf="@id/campo_dia"
+        app:layout_constraintTop_toBottomOf="@id/edit_especialidad" />
 
     <!-- HORARIO -->
 
     <TextView
         android:id="@+id/campo_horario"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:text="Horario"
+        android:text="@string/etiqueta_horario"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/edit_horario"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintEnd_toStartOf="@id/edit_horario"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edit_horario"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="Ingresar Horario"
-        android:inputType="time"
+        android:hint="@string/hint_horario"
+        android:inputType="text"
+        android:focusable="false"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/soport2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_dia"
-        app:layout_constraintBottom_toTopOf="@id/soport2"/>
+        app:layout_constraintStart_toEndOf="@id/campo_dia"
+        app:layout_constraintTop_toBottomOf="@id/edit_dia" />
 
     <Button
         android:id="@+id/boton_siguiente"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Siguiente"
-        android:textSize="18sp"
-        android:textAllCaps="false"
         android:layout_marginBottom="50dp"
+        android:text="@string/btn_siguiente"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_round"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/soport2"

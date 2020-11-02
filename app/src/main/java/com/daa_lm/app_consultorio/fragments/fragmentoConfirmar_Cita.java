@@ -5,8 +5,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daa_lm.app_consultorio.R;
+import com.daa_lm.app_consultorio.Vmodel.CitaViewModel;
+import com.daa_lm.app_consultorio.data.Cita;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,7 +42,9 @@ public class fragmentoConfirmar_Cita extends Fragment {
     private TextView resultado_doctor, resultado_hospital, resultado_especialidad, resultado_dia, resultado_horario;
     private Button confirmar;
 
-    private static final String TAG = "Fragmento Confirmar: ";
+    private CitaViewModel citaViewModel;
+
+    private static final String TAG = fragmentoConfirmar_Cita.class.getSimpleName();
 
     public fragmentoConfirmar_Cita() {
         // Required empty public constructor
@@ -89,13 +96,33 @@ public class fragmentoConfirmar_Cita extends Fragment {
         resultado_dia = v.findViewById(R.id.result_dia);
         resultado_horario = v.findViewById(R.id.result_horario);
 
-        fragmentoConfirmar_CitaArgs args = fragmentoConfirmar_CitaArgs.fromBundle(getArguments());
+        try{
+            Log.i(TAG, "*** onCreateView: CREANDO citaViewModel ***");
+            citaViewModel = new ViewModelProvider(requireActivity()).get(CitaViewModel.class);
+            citaViewModel.getDatosCita().observe(getViewLifecycleOwner(), new Observer<Cita>() {
+                @Override
+                public void onChanged(Cita cita) {
+                    Log.i(TAG, "*** citaViewModel.getDatosCita().observe() : ACTUALIZANDO DATOS ***");
+                    resultado_doctor.setText(cita.getNombreDoctor());
+                    resultado_hospital.setText(cita.getHospital());
+                    resultado_especialidad.setText(cita.getEspecialidad());
+                    resultado_dia.setText(cita.getFecha());
+                    resultado_horario.setText(cita.getHospital());
+                    Log.i(TAG, "*** citaViewModel.getDatosCita().observe() : DATOS ACTUALIZADOS ***");
+                }
+            });
+
+        } catch (Exception e){
+            Log.e(TAG, "*** ERROR: " + e.getMessage() + " *** ");
+        }
+
+        /* fragmentoConfirmar_CitaArgs args = fragmentoConfirmar_CitaArgs.fromBundle(getArguments());
 
         resultado_doctor.setText(args.getDoctor());
         resultado_hospital.setText(args.getHospital());
         resultado_especialidad.setText(args.getEspecialidad());
         resultado_dia.setText(args.getDia());
-        resultado_horario.setText(args.getHorario());
+        resultado_horario.setText(args.getHorario());*/
 
         confirmar = v.findViewById(R.id.boton_confirmar);
 

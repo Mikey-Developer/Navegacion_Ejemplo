@@ -7,9 +7,12 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import androidx.lifecycle.ViewModelProvider;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,8 @@ import android.widget.EditText;
 
 
 import com.daa_lm.app_consultorio.R;
+import com.daa_lm.app_consultorio.Vmodel.CitaViewModel;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +43,9 @@ public class fragmentoCita extends Fragment{
     private EditText nombre_doctor, hospital, especialidad, dia, horario;
     private Button siguiente;
 
-    private static final String TAG = "fragmentoCita: ";
+    private CitaViewModel citaViewModel;
+
+    private static final String TAG = fragmentoCita.class.getSimpleName();
 
     private TextWatcher revisar_campos = new TextWatcher() {
         @Override
@@ -99,6 +106,9 @@ public class fragmentoCita extends Fragment{
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_citas, container, false);
 
+        citaViewModel = new ViewModelProvider(requireActivity()).get(CitaViewModel.class);
+
+
         nombre_doctor = v.findViewById(R.id.edit_nombre_doctor);
         hospital = v.findViewById(R.id.edit_hospital);
         especialidad = v.findViewById(R.id.edit_especialidad);
@@ -121,14 +131,27 @@ public class fragmentoCita extends Fragment{
             }
         });
 
+
+
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ir_aDestino(view, nombre_doctor.getText().toString(),
+               /*ir_aDestino(view, nombre_doctor.getText().toString(),
+                        hospital.getText().toString(),
+                        especialidad.getText().toString(),
+                        dia.getText().toString(),
+                        horario.getText().toString());*/
+
+                Log.i(TAG, "*** siguiente: SETONCLICKLISTENER() ***");
+                Log.i(TAG, "*** siguiente: SETONCLICKLISTENER() : citaViewModel.crearCita ***");
+                citaViewModel.crearCita(nombre_doctor.getText().toString(),
                         hospital.getText().toString(),
                         especialidad.getText().toString(),
                         dia.getText().toString(),
                         horario.getText().toString());
+
+                Log.i(TAG, "*** siguiente: SETONCLICKLISTENER() : FIN ***");
+                Navigation.findNavController(view).navigate(R.id.action_confirmar);
             }
         });
 

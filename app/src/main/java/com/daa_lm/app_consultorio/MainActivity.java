@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             nav_view = findViewById(R.id.nav_lateral);
             NavigationUI.setupWithNavController(nav_view, control_nav);
 
-            appbarConfig = new AppBarConfiguration.Builder(R.id.inicio, R.id.citas)
+            appbarConfig = new AppBarConfiguration.Builder(R.id.inicio, R.id.citas, R.id.empresas)
                     .setOpenableLayout(drawerLayout)
                     .build();
 

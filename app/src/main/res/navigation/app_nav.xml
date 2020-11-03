@@ -47,4 +47,15 @@
         android:name="com.daa_lm.app_consultorio.fragments.fragmentoInicio"
         android:label="Menú de Inicio"
         tools:layout="@layout/fragment_inicio" />
+    <fragment
+        android:id="@+id/empresas"
+        android:name="com.daa_lm.app_consultorio.fragments.fragmentoEmpresa"
+        android:label="Registrar Empresa"
+        tools:layout="@layout/fragment_empresa"/>
+
+  <!--  <fragment
+        android:id="@+id/Test"
+        android:name="com.daa_lm.app_consultorio.fragments.testFragment"
+        android:label="Fragment Test"
+        tools:layout="@layout/fragment_test" /> -->
 </navigation>

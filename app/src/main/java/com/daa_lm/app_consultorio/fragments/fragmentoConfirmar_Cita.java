@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.daa_lm.app_consultorio.R;
 import com.daa_lm.app_consultorio.Vmodel.CitaViewModel;
+//import com.daa_lm.app_consultorio.Vmodel.ListaCitaViewModel;
 import com.daa_lm.app_consultorio.data.Cita;
 
 /**
@@ -43,6 +44,7 @@ public class fragmentoConfirmar_Cita extends Fragment {
     private Button confirmar;
 
     private CitaViewModel citaViewModel;
+    //private ListaCitaViewModel listaCitaViewModel;
 
     private static final String TAG = fragmentoConfirmar_Cita.class.getSimpleName();
 
@@ -107,7 +109,7 @@ public class fragmentoConfirmar_Cita extends Fragment {
                     resultado_hospital.setText(cita.getHospital());
                     resultado_especialidad.setText(cita.getEspecialidad());
                     resultado_dia.setText(cita.getFecha());
-                    resultado_horario.setText(cita.getHospital());
+                    resultado_horario.setText(cita.getHorario());
                     Log.i(TAG, "*** citaViewModel.getDatosCita().observe() : DATOS ACTUALIZADOS ***");
                 }
             });
@@ -115,6 +117,8 @@ public class fragmentoConfirmar_Cita extends Fragment {
         } catch (Exception e){
             Log.e(TAG, "*** ERROR: " + e.getMessage() + " *** ");
         }
+
+        //listaCitaViewModel = new ViewModelProvider(requireActivity()).get(ListaCitaViewModel.class);
 
         /* fragmentoConfirmar_CitaArgs args = fragmentoConfirmar_CitaArgs.fromBundle(getArguments());
 
@@ -129,6 +133,9 @@ public class fragmentoConfirmar_Cita extends Fragment {
         confirmar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+               /* Log.i(TAG, "*** confirmar.setOnClickListener() : BOTON PRESIONADO. AGREGANDO CITA A LISTA (listaCitaViewModel.agregarCita(cita) ***");
+                listaCitaViewModel.agregarCita(citaViewModel.getCita());
+                Log.i(TAG, "*** confirmar.setOnClickListener() : CITA AGREGADA A LISTA (listaCitaViewModel.agregarCita(cita) ***");*/
                 Toast.makeText(getActivity(), "Cita confirmada!", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).navigate(R.id.action_regresar_inicio);
             }

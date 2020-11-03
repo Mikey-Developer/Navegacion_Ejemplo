@@ -10,5 +10,12 @@
             android:id="@id/citas"
             android:icon="@drawable/ic_agenda"
             android:title="Agendar Cita"/>
+        <item
+            android:id="@id/empresas"
+            android:icon="@drawable/ic_empresa"
+            android:title="Registrar Empresa" />
+      <!--  <item
+            android:id="@id/Test"
+            android:title="Test Fragmento" /> -->
     </group>
 </menu>

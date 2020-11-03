@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:paddingTop="8dp"
+    android:paddingHorizontal="16dp"
+    >
+
+
+    <TextView
+        android:id="@+id/titulo_fragEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Ingresar Empresa"
+        android:textSize="40sp"
+        android:textColor="@color/colorPrimary"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/lblId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editId"
+        android:text="Id de Empresa"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/editId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/titulo_fragEmpresa"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Ingresar id" />
+
+    <TextView
+        android:id="@+id/lblNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editNombre_Empresa"
+        android:text="Nombre Empresa"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editNombre_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editId"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Ingresar Nombre" />
+
+    <TextView
+        android:id="@+id/lblDescripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editDesc_Empresa"
+        android:text="Descripcion"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editDesc_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editNombre_Empresa"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="Descripcion" />
+
+
+    <TextView
+        android:id="@+id/lblTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editTel_Empresa"
+        android:text="Telefono"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editTel_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editDesc_Empresa"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Ingresar Telefono" />
+
+    <TextView
+        android:id="@+id/lblDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editDireccion_Empresa"
+        android:text="Direccion"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editDireccion_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editTel_Empresa"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="Ingresar Direccion" />
+<!--
+    <TextView
+        android:id="@+id/lblCodigoPostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editCP_Empresa"
+        android:text="Codigo Postal"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editCP_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editDireccion_Empresa"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:hint="Ingresar Codigo Postal" />
+
+    <TextView
+        android:id="@+id/lblColonia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editColonia_Empresa"
+        android:text="Colonia"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editColonia_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editCP_Empresa"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Ingresar Colonia" />
+
+    <TextView
+        android:id="@+id/lblEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editEstado_Empresa"
+        android:text="Estado"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editEstado_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editColonia_Empresa"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Ingresar Estado" />
+
+    <TextView
+        android:id="@+id/lblCiudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editCiudad_Empresa"
+        android:text="Ciudad"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editCiudad_Empresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editEstado_Empresa"
+        android:layout_marginVertical="4dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Ingresar Ciudad" />
+-->
+    <Button
+        android:id="@+id/finalizarEmpresa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/btn_round"
+        android:text="ENVIAR" />
+
+    <EditText
+        android:id="@+id/testVM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/editDireccion_Empresa"
+        android:layout_above="@id/finalizarEmpresa"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textAlignment="center"
+        android:text="Name"
+        android:textSize="12sp"/>
+
+    <!-- <TextView
+        android:id="@+id/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editNombre_Empresa"
+        android:text=""
+        android:textSize="18sp"/> -->
+
+    <!-- <EditText
+        android:id="@+id/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/editId"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType=""
+        android:hint="Ingresar" /> -->
+
+</RelativeLayout>
+
